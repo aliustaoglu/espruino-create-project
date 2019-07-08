@@ -30,13 +30,3 @@ program
 
 program.parse(process.argv);
 
-
-/*
-program.parse([ '/Users/cuneytaliustaoglu/.nvm/versions/node/v10.16.0/bin/node',
-'/Development/ESPRuino/espruino-create-project/index.js',
-'create',
-'my-project',
-'-p',
-'1111' ])
-
-*/
