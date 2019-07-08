@@ -12,17 +12,18 @@ const promtQuestion = {
 
 const createProject = (projectName, options) => {
   const workingFolder = path.join(process.cwd(), projectName);
-  const moduleFolder = path.dirname(fs.realpathSync(__filename), '../');
-  console.log(workingFolder)
-  console.log(moduleFolder)
+  const moduleFolder = path.dirname(path.join(fs.realpathSync(__filename), '../'));
+  console.log('Working Folder:' + workingFolder)
+  console.log('Library Folder' + moduleFolder)
   const allOptions = Object.assign({}, options, { name: projectName });
   const packageJson = template.getTemplate(allOptions);
   
   fs.mkdirSync(workingFolder);
   fs.writeFileSync(workingFolder + '/package.json', packageJson);
   ncp(moduleFolder + '/boards', workingFolder + '/boards');
-  ncp(moduleFolder + 'firmware', workingFolder + '/firmware');
-  ncp(moduleFolder + 'templates/minimal/src', workingFolder + '/src');
+  ncp(moduleFolder + '/firmware', workingFolder + '/firmware');
+  ncp(moduleFolder + '/templates/minimal/src', workingFolder + '/src');
+  console.log(chalk.greenBright(''))
 };
 
 module.exports = {
