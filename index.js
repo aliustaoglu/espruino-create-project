@@ -20,9 +20,9 @@ program
   .action(list.listDevices);
 
 program
-  .command('create [env]')
+  .command('create [projectName]')
   .description('Create a boilerplate for ESP8266/ESP32 project')
-  .option('-n, --name <type>', 'Name of project', 'my-espruino-project')
+  //.option('-n, --name <type>', 'Name of project', 'my-espruino-project')
   .option('-e, --esp <type>', 'Which ESP to use? esp8266 or esp32?', 'esp8266')
   .option('-p, --port <type>', 'Default port name', '/dev/cu.wchusbserial1420')
   .option('-b, --baud <type>', 'Default baud rate', 115200)
@@ -31,9 +31,12 @@ program
 program.parse(process.argv);
 
 
-/*program.parse([ '/Users/cuneytaliustaoglu/.nvm/versions/node/v10.16.0/bin/node',
+/*
+program.parse([ '/Users/cuneytaliustaoglu/.nvm/versions/node/v10.16.0/bin/node',
 '/Development/ESPRuino/espruino-create-project/index.js',
 'create',
+'my-project',
 '-p',
 '1111' ])
+
 */
