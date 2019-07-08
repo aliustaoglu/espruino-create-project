@@ -1,0 +1,35 @@
+{
+  "name": "espruino-create-project",
+  "version": "1.0.0",
+  "description": "Create an espruino project",
+  "preferGlobal": true,
+  "bin": {
+    "espruino-create-project": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliustaoglu/espruino-create-project.git"
+  },
+  "keywords": [
+    "espruino",
+    "esp8266",
+    "esp32",
+    "javascript"
+  ],
+  "author": "Cuneyt Aliustaoglu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aliustaoglu/espruino-create-project/issues"
+  },
+  "homepage": "https://github.com/aliustaoglu/espruino-create-project#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "ncp": "^2.0.0",
+    "prompt": "^1.0.0",
+    "table": "^5.4.1"
+  }
+}

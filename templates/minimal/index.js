@@ -1,0 +1,1 @@
+E.on("init",function(){})
