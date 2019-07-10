@@ -14,12 +14,20 @@ program
 program
   .command('init [projectName]')
   .description('Create a boilerplate for ESP8266/ESP32 project')
-  //.option('-n, --name <type>', 'Name of project', 'my-espruino-project')
   .option('-e, --esp <type>', 'Which ESP to use? esp8266 or esp32?', 'esp8266')
   .option('-p, --port <type>', 'Default port name', '/dev/cu.wchusbserial1420')
   .option('-b, --baud <type>', 'Default baud rate', 115200)
   .option('-a, --author <type>', 'Author', 'My Name')
   .action(init.newProject);
+
+program
+  .command('update')
+  .description('Update boilerplate')
+  .option('-e, --esp <type>', 'Which ESP to use? esp8266 or esp32?', 'esp8266')
+  .option('-p, --port <type>', 'Default port name', '/dev/cu.wchusbserial1420')
+  .option('-b, --baud <type>', 'Default baud rate', 115200)
+  .option('-a, --author <type>', 'Author', 'My Name')
+  .action(init.updateProject);
 
 if (process.argv.length < 3) {
   const helpCmd = chalk.bgWhiteBright("espruino-create-project --help")

@@ -13,8 +13,6 @@ const promtQuestion = {
 const createProject = (projectName, options) => {
   const workingFolder = path.join(process.cwd(), projectName);
   const moduleFolder = path.dirname(path.join(fs.realpathSync(__filename), '../'));
-  console.log('Working Folder:' + workingFolder);
-  console.log('Library Folder' + moduleFolder);
   const allOptions = Object.assign({}, options, { name: projectName });
   const packageJson = template.getTemplate(allOptions);
 
@@ -59,5 +57,18 @@ module.exports = {
         console.log(chalk.redBright('Espruino project creation terminated'));
       }
     });
+  },
+  updateProject: options => {
+    const workingFolder = process.cwd();
+    const packageJson = path.join(workingFolder, 'package.json');
+    const packageContent = JSON.parse(fs.readFileSync(packageJson).toString());
+    const scripts = JSON.parse(template.getTemplate(Object.assign({}, options, { name: '' }))).scripts;
+    packageContent.scripts = scripts;
+    const newPackage = JSON.stringify(packageContent, null, 2);
+    fs.writeFileSync(packageJson, newPackage);
+    console.log(chalk.bgGreenBright('\r\nNew package content\r\n'))
+    console.log(newPackage)
+    console.log(chalk.greenBright('\r\nScripts updated successfully.'));
+    
   }
 };
