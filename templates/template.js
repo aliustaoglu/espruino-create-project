@@ -18,8 +18,8 @@ const getTemplate = options => {
       "author": "${options.author}",
       "license": "ISC",
       "devDependencies": {
-        "espruino": "^0.1.20",
-        "uglify-js": "^3.6.0"
+        "espruino": "0.1.20",
+        "uglify-js": "3.6.0"
       }
     }`,
     esp32: `{
@@ -34,13 +34,13 @@ const getTemplate = options => {
         "reupload": "npm run reset && npm run upload",
         "screen": "screen ${options.port} 115200",
         "uglify": "uglifyjs src/* --compress --mangle -o ./index.js ",
-        "upload": "espruino --port ${options.port} --board ESP32 -b 115200 -e 'save()' index.js"
+        "upload": "npm run uglify && espruino --port ${options.port} --board ESP32 -b 115200 -e 'save()' index.js"
       },
       "author": "${options.author}",
       "license": "ISC",
       "devDependencies": {
-        "espruino": "^0.1.20",
-        "uglify-js": "^3.6.0"
+        "espruino": "0.1.20",
+        "uglify-js": "3.6.0"
       }
     }`
   };

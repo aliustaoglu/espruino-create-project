@@ -1,7 +1,8 @@
 {
   "name": "espruino-create-project",
-  "version": "1.0.0",
-  "description": "Create an espruino project",
+  "displayName": "Espruino Create Project",
+  "version": "0.1.0",
+  "description": "Easily create & flash Espruino projects from templates",
   "preferGlobal": true,
   "bin": {
     "espruino-create-project": "index.js"
@@ -19,7 +20,10 @@
     "esp32",
     "javascript"
   ],
-  "author": "Cuneyt Aliustaoglu",
+  "author": {
+    "name": "Cuneyt Aliustaoglu",
+    "url": "https://cuneyt.aliustaoglu.biz"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aliustaoglu/espruino-create-project/issues"
