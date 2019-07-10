@@ -13,11 +13,11 @@ const getTemplate = (options) => `
     "upload": "npm run uglify && espruino -p ${options.port} -b ${options.baud} --board boards/ESP8266_4MB.json -e 'save()' index.js",
     "screen": "screen ${options.port} ${options.baud}"
   },
-  "author": "Cuneyt Aliustaoglu",
+  "author": "${options.author}",
   "license": "ISC",
   "devDependencies": {
-    "espruino": "^0.1.12",
-    "uglify-js": "^3.4.7"
+    "espruino": "^0.1.20",
+    "uglify-js": "^3.6.0"
   }
 }
 `;
