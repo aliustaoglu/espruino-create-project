@@ -1,0 +1,6 @@
+{
+  "chip" : "esp8266",
+  "port": "/dev/cu.SLAB_USBtoUART",
+  "baud": 115200,
+  "author": "Cuneyt Aliustaoglu"
+}

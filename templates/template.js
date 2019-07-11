@@ -32,9 +32,9 @@ const getTemplate = options => {
         "flash": "esptool.py --chip esp32 --port ${options.port}  --baud ${options.baud} --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect 0x1000 firmware/bootloader.bin 0x8000 firmware/partitions_espruino.bin 0x10000 firmware/espruino_esp32.bin",
         "reset": "npm run erase && npm run flash",
         "reupload": "npm run reset && npm run upload",
-        "screen": "screen ${options.port} 115200",
+        "screen": "screen ${options.port} ${options.baud}",
         "uglify": "uglifyjs src/* --compress --mangle -o ./index.js ",
-        "upload": "npm run uglify && espruino --port ${options.port} --board ESP32 -b 115200 -e 'save()' index.js"
+        "upload": "npm run uglify && espruino --port ${options.port}  --board boards/ESP32.json -b ${options.baud} -e 'save()' index.js"
       },
       "author": "${options.author}",
       "license": "ISC",
@@ -45,7 +45,7 @@ const getTemplate = options => {
     }`
   };
 
-  return template[options.esp];
+  return template[options.chip];
 }
 
 

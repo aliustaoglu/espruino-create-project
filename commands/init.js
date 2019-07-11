@@ -5,6 +5,7 @@ const template = require('../templates/template');
 const fs = require('fs');
 const ncp = require('ncp').ncp;
 const path = require('path');
+const childProcess = require('child_process');
 
 const promtQuestion = {
   IS_INFORMATION_CORRECT: 'Is this information correct?'
@@ -19,9 +20,14 @@ const createProject = (projectName, options) => {
   fs.mkdirSync(workingFolder);
   fs.writeFileSync(workingFolder + '/package.json', packageJson);
   ncp(moduleFolder + '/boards', workingFolder + '/boards');
-  ncp(moduleFolder + '/firmware/' + options.esp, workingFolder + '/firmware');
+  ncp(moduleFolder + '/firmware/' + options.chip, workingFolder + '/firmware');
   ncp(moduleFolder + '/templates/minimal/src', workingFolder + '/src');
-  console.log(chalk.greenBright(''));
+  console.log(chalk.whiteBright('Your Espruino project is being created. Please wait....'))
+  childProcess.exec(`cd ${workingFolder} && npm install`, (error, stdout, stderr) => {
+    console.log(stdout);
+    console.log(chalk.whiteBright(`Project ${projectName} has been created successfully.`))
+  });
+  
 };
 
 module.exports = {
@@ -41,7 +47,7 @@ module.exports = {
       ],
       [
         chalk.whiteBright(projectName),
-        chalk.whiteBright(options.esp),
+        chalk.whiteBright(options.chip),
         chalk.whiteBright(options.port),
         chalk.whiteBright(options.baud),
         chalk.whiteBright(options.author)
@@ -66,9 +72,8 @@ module.exports = {
     packageContent.scripts = scripts;
     const newPackage = JSON.stringify(packageContent, null, 2);
     fs.writeFileSync(packageJson, newPackage);
-    console.log(chalk.bgGreenBright('\r\nNew package content\r\n'))
-    console.log(newPackage)
+    console.log(chalk.bgGreenBright('\r\nNew package content\r\n'));
+    console.log(newPackage);
     console.log(chalk.greenBright('\r\nScripts updated successfully.'));
-    
   }
 };
