@@ -1,7 +1,7 @@
 {
   "name": "espruino-create-project",
   "displayName": "Espruino Create Project",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Easily create & flash Espruino projects from templates",
   "preferGlobal": true,
   "bin": {
