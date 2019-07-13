@@ -18,7 +18,7 @@ const getTemplate = options => {
       "author": "${options.author}",
       "license": "ISC",
       "devDependencies": {
-        "espruino": "0.1.20",
+        "espruino": "0.1.28",
         "uglify-js": "3.6.0"
       }
     }`,
@@ -39,7 +39,7 @@ const getTemplate = options => {
       "author": "${options.author}",
       "license": "ISC",
       "devDependencies": {
-        "espruino": "0.1.20",
+        "espruino": "0.1.28",
         "uglify-js": "3.6.0"
       }
     }`

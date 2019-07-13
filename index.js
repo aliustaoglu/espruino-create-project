@@ -19,7 +19,7 @@ program
   .option('-c, --chip <type>', 'Which ESP to use? esp8266 or esp32?', defaults.chip)
   .option('-p, --port <type>', 'Default port name', defaults.port)
   .option('-b, --baud <type>', 'Default baud rate', defaults.baud)
-  .option('-a, --author <type>', 'Author', 'My Name', defaults.author)
+  .option('-a, --author <type>', 'Author', defaults.author)
   .action(init.newProject);
 
 program
